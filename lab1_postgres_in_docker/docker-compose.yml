@@ -1,0 +1,23 @@
+version: '3.9'
+
+services: 
+    db:
+        image: postgres
+        volumes: 
+            - ./data/db:/var/lib/postgresql/data
+            - ./initDB:/docker-entrypoint-initdb.d/
+        environment: 
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - APP_DB_USER=jason
+            - APP_DB_PASS=jason
+            - APP_DB_NAME=generaldb
+        ports: 
+            - "5432:5432"
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            interval: 10s
+            timeout: 5s
+            retries: 10
+        stop_grace_period: 60s
