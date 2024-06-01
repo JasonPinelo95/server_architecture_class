@@ -40,17 +40,17 @@ You also need to have a Google Cloud Platform project. You can create one [here]
 Create a new VM instance on Google Cloud Platform. You can do this [here](https://console.cloud.google.com/compute/instancesAdd).
 
 Select the following options:
-* Name: cassandra-workshop
+* Name: postgres_docker_workshop
 * Region: us-central1
 * Zone: us-central1-c
 * Machine type: e2-standard-2 (2 vCPUs, 8 GB memory)
-* Boot disk: Ubuntu 18.04 LTS (x86_64)
+* Boot disk: Ubuntu 20.04 LTS (x86_64)
 * On Advanced Options -> Security -> Manage Access, click on **+ ADD ITEM** and copy-paste your ssh public key.
 * Click on "Create"
 
 SSH into the VM instance. You can do this by opening a terminal and running the following command:
 
-```$ ssh -i ~/.ssh/<NAME_OF_PRIVATE_KEY> <USERNAME>@<EXTERNAL_IP> ```
+```$ ssh -i ~/.ssh/<NAME_OF_PUBLIC_KEY> <USERNAME>@<EXTERNAL_IP> ```
 
 Once you are SSHed into the VM, run the following commands one by one:
 
