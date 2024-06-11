@@ -1,0 +1,14 @@
+docker-compose exec webserver airflow db init
+docker-compose exec webserver bash
+
+airflow users create \
+    --username admin \
+    --firstname admin \
+    --lastname superuser \
+    --role Admin \
+    --email admin@example.com \
+    --password admin
+
+# Enter the webserver, if scheduler does not appear to be running
+docker-compose restart scheduler
+
